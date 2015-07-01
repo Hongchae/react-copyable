@@ -4,12 +4,11 @@
     "name": "hongchae",
     "email": "irislhc@gmail.com"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Clipboard copyable React component",
-  "main": "./react-copyable.jsx",
+  "main": "./react-copyable.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-    "prepublish": "npm run build"
   },
   "contributors": [
     {

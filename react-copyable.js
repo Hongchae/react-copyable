@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 
 var Style = {
@@ -12,17 +14,17 @@ var Style = {
     }
 };
 
-var Copyable = React.createClass({
+var Copyable = React.createClass({displayName: "Copyable",
     propTypes: {
         value : React.PropTypes.string.isRequired
     },
 
     render: function() {
         return (
-            <span>
-                <span onClick={this.copy} style={Style.label}>{this.props.value}</span>
-                <input ref="copyArea" style={Style.copyArea} value={this.props.value} />
-        </span>
+            React.createElement("span", null, 
+                React.createElement("span", {onClick: this.copy, style: Style.label}, this.props.value), 
+                React.createElement("input", {ref: "copyArea", style: Style.copyArea, value: this.props.value})
+            )
         );
     },
 
