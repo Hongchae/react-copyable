@@ -1,0 +1,41 @@
+{
+  "name": "react-copyable",
+  "author": {
+    "name": "hongchae",
+    "email": "irislhc@gmail.com"
+  },
+  "version": "0.0.1",
+  "description": "Clipboard copyable React component",
+  "main": "./react-copyable.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "npm run build"
+  },
+  "contributors": [
+    {
+      "name": "hongchae",
+      "email": "irislhc@gmail.com"
+    }
+  ],
+  "keywords": [
+    "react",
+    "react-component",
+    "react-copy",
+    "react-clipboard",
+    "clipboard"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hongchae/react-copyable.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hongchae/react-copyable/issues"
+  },
+  "peerDependencies": {
+    "react": ">=0.13"
+  },
+  "devDependencies": {
+    "react": "^0.13.3"
+  }
+}
