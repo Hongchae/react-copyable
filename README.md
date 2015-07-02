@@ -3,7 +3,7 @@ Clipboard copyable React component
 
 Implementation of clipboard copyable text [React](http://facebook.github.io/react/) component.
 
-##usage
+## usage
 
 ```js
 var React = require('react'),

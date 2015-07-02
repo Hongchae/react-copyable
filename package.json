@@ -4,7 +4,7 @@
     "name": "hongchae",
     "email": "irislhc@gmail.com"
   },
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Clipboard copyable React component",
   "main": "./react-copyable.js",
   "scripts": {
