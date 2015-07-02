@@ -4,11 +4,13 @@
     "name": "hongchae",
     "email": "irislhc@gmail.com"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Clipboard copyable React component",
   "main": "./react-copyable.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "./node_modules/.bin/jsx -x jsx ./src/ ./",
+    "prepublish": "npm run build"
   },
   "contributors": [
     {
@@ -31,10 +33,11 @@
   "bugs": {
     "url": "https://github.com/hongchae/react-copyable/issues"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react": ">=0.13"
   },
   "devDependencies": {
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "react-tools": "^0.13.3"
   }
 }
