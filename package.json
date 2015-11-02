@@ -4,12 +4,12 @@
     "name": "hongchae",
     "email": "irislhc@gmail.com"
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Clipboard copyable React component",
   "main": "./react-copyable.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "./node_modules/.bin/jsx -x jsx ./src/ ./",
+    "build" : "./node_modules/.bin/babel src/react-copyable.jsx > react-copyable.js",
     "prepublish": "npm run build"
   },
   "contributors": [
@@ -34,10 +34,11 @@
     "url": "https://github.com/hongchae/react-copyable/issues"
   },
   "dependencies": {
-    "react": ">=0.13"
+    "react": ">=0.14",
+    "react-dom": ">=0.14"
   },
   "devDependencies": {
-    "react": "^0.13.3",
-    "react-tools": "^0.13.3"
+    "babel-cli": "^6.0.14",
+    "babel-plugin-transform-react-jsx": "^6.0.14"
   }
 }

@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 var Style = {
     copyArea: {
@@ -14,9 +15,7 @@ var Style = {
 var Copyable = React.createClass({
     displayName: "Copyable",
     propTypes: {
-        text: React.PropTypes.oneOfType([
-                React.PropTypes.string,
-                React.PropTypes.number]).isRequired,
+        text: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired,
         onCopy: React.PropTypes.func,
         selectedColor: React.PropTypes.string,
         style: React.PropTypes.object
@@ -24,17 +23,15 @@ var Copyable = React.createClass({
 
     getDefaultProps: function getDefaultProps() {
         return {
-            onCopy: function() {},
+            onCopy: function () {},
             selectedColor: '#A5DDFF',
             style: {}
         };
     },
 
-    componentWillMount: function() {
+    componentWillMount: function () {},
 
-    },
-
-    _getStyles: function() {
+    _getStyles: function () {
         var styles = {
             'cursor': 'pointer',
             'border': '1px solid #CCC',
@@ -44,7 +41,8 @@ var Copyable = React.createClass({
             'color': '#616c71'
         };
 
-        var key, src = this.props.style;
+        var key,
+            src = this.props.style;
         for (key in src) {
             if (Object.prototype.hasOwnProperty.call(src, key)) {
                 styles[key] = src[key];
@@ -54,8 +52,8 @@ var Copyable = React.createClass({
         return styles;
     },
 
-    _copy: function() {
-        var e = this.refs.copyEl.getDOMNode();
+    _copy: function () {
+        var e = ReactDOM.findDOMNode(this.refs.copyEl);
         e.focus();
         e.select();
 
@@ -63,21 +61,25 @@ var Copyable = React.createClass({
             document.execCommand('copy');
             e.blur();
             this.props.onCopy(this.props.text);
-        } catch(e) {
-            this.refs.textEl.getDOMNode().style.backgroundColor = this.props.selectedColor;
+        } catch (e) {
+            ReactDOM.findDOMNode(this.refs.textEl).style.backgroundColor = this.props.selectedColor;
         }
     },
 
-    _restore: function() {
-        this.refs.textEl.getDOMNode().style.backgroundColor = '#FAFAFA';
+    _restore: function () {
+        ReactDOM.findDOMNode(this.refs.textEl).style.backgroundColor = '#FAFAFA';
     },
 
-    render: function() {
-        return (
-		React.createElement("span", null, 
-			React.createElement("span", {ref: "textEl", onClick: this._copy, style: this._getStyles()}, this.props.text), 
-			React.createElement("input", {ref: "copyEl", style: Style.copyArea, value: this.props.text, onBlur: this._restore, readOnly: true})
-		)	
+    render: function () {
+        return React.createElement(
+            'span',
+            null,
+            React.createElement(
+                'span',
+                { ref: 'textEl', onClick: this._copy, style: this._getStyles() },
+                this.props.text
+            ),
+            React.createElement('input', { ref: 'copyEl', style: Style.copyArea, value: this.props.text, onBlur: this._restore, readOnly: true })
         );
     }
 });

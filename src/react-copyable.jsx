@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 var Style = {
     copyArea: {
@@ -55,7 +56,7 @@ var Copyable = React.createClass({
     },
 
     _copy: function() {
-        var e = this.refs.copyEl.getDOMNode();
+	var e = ReactDOM.findDOMNode(this.refs.copyEl);
         e.focus();
         e.select();
 
@@ -64,12 +65,12 @@ var Copyable = React.createClass({
             e.blur();
             this.props.onCopy(this.props.text);
         } catch(e) {
-            this.refs.textEl.getDOMNode().style.backgroundColor = this.props.selectedColor;
+	    ReactDOM.findDOMNode(this.refs.textEl).style.backgroundColor = this.props.selectedColor;
         }
     },
 
     _restore: function() {
-        this.refs.textEl.getDOMNode().style.backgroundColor = '#FAFAFA';
+        ReactDOM.findDOMNode(this.refs.textEl).style.backgroundColor = '#FAFAFA';
     },
 
     render: function() {
